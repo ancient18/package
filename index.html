@@ -152,28 +152,28 @@
       //   clearInterval(timer2);
       // });
 
-      // // 点击分栏显示视频
-      // column.addEventListener("click", function (e) {
-      //   if (e.path[0].nodeName === "SPAN") {
-      //     e.path[2].querySelectorAll("span").forEach(function (item) {
-      //       item.className = item.className.replace("add", "");
-      //     });
-      //     e.path[0].className += " add";
-      //     logo.style.background = "black";
-      //     video.style.display = "block";
-      //   }
-      // });
+      // 点击分栏显示视频
+      column.addEventListener("click", function (e) {
+        if (e.path[0].nodeName === "SPAN") {
+          e.path[2].querySelectorAll("span").forEach(function (item) {
+            item.className = item.className.replace("add", "");
+          });
+          e.path[0].className += " add";
+          logo.style.background = "black";
+          video.style.display = "block";
+        }
+      });
 
-      // areaColumn.addEventListener("click", function (e) {
-      //   e.path[1].querySelectorAll("div").forEach(function (item) {
-      //     item.className = item.className.replace("add", "");
-      //   });
-      //   e.path[0].className += " add";
-      //   console.log(column.querySelectorAll("div"));
-      //   column.querySelectorAll("div").forEach(function (item) {
-      //     item.style.display = "block";
-      //   });
-      // });
+      areaColumn.addEventListener("click", function (e) {
+        e.path[1].querySelectorAll("div").forEach(function (item) {
+          item.className = item.className.replace("add", "");
+        });
+        e.path[0].className += " add";
+        console.log(column.querySelectorAll("div"));
+        column.querySelectorAll("div").forEach(function (item) {
+          item.style.display = "block";
+        });
+      });
     </script>
   </body>
 </html>
