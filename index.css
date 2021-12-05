@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.left,
+.right,
+.center {
+  height: 820px;
+}
+
+.left {
+  position: absolute;
+  left: 0;
+  width: 20%;
+  background-color: #f0f0f0;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+  width: 20%;
+  background-color: white;
+  color: #1890ff;
+}
+
+.center {
+  width: auto;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: black;
+  border: 1px solid;
+}
+
+.navigator {
+	display: flex;
+	justify-content: space-evenly;
+	width:100%;
+	height:60px;
+	line-height:60px;
+	text-align: center;
+	background-color:#c0c0c0;
+}
+
+.navigator div{
+  width: 25%;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+.left h2{
+  margin-top:30px;
+  color:#1890ff;
+}
+
+.column{
+	display: flex;
+	flex-direction: column;
+  height: 400px;
+  justify-content: space-evenly;
+  margin: 5px;
+  font-size:20px;
+	cursor: pointer;
+}
+.column div{
+  display: none;
+}
+
+.column div img{
+  width:20px;
+}
+
+.column div span{
+  vertical-align: top;
+}
+
+.nextPage{
+  height:60px;
+  line-height:60px;
+  font-size:36px;
+  font-family: 'SimSun';
+  background-color:#e8e8e8;
+  border-bottom: 5px solid #c0c0c0;
+}
+
+.area{
+  height:120px;
+  font-size:24px;
+}
+
+.area-column{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-evenly;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.other-area{
+  position:absolute;
+  bottom: 0;
+  width:100%;
+  height: 80px;
+  line-height:80px;
+  color: #98979c !important;
+  background-color:#dadada;
+}
+
+.today,.month{
+  text-align: left;
+  padding-left: 60px;
+}
+
+.statistics{
+  background-color:white;
+}
+
+.statistics h2,p{
+  margin-top:40px;
+  margin-bottom: 40px;
+}
+
+.statistics h1{
+  margin-top:-20px;
+  font-size:70px;
+  color:red;
+}
+
+.special{
+  height:270px;
+  margin-top:80px;
+  border-top: 30px solid #dadada;
+  border-left: 5px solid #dadada;
+  border-right: 5px solid #dadada;
+  border-bottom: 55px solid #dadada;
+  background-color:white;
+  color: red;
+}
+
+.special h2{
+  margin: 20px 0;
+  
+}
+
+.check{
+  position:absolute;
+  bottom: 0;
+  width: 100%;
+  height:80px;
+  line-height:80px;
+  color:#98979c;
+  background-color:#dadada;
+}
+
+video{
+  width:100%;
+  height:760px;
+  display: none;
+}
+
+.statistics span{
+  color: red;
+}
+
+.add{
+  color: #1890ff;
+}
+
+.logo{
+  width:100%;
+  height:760px;
+  background-image:url(./logo.png);
+  background-repeat:no-repeat ;
+  background-size:50%;
+  background-position:center;
+  background-color: white;
+}
+
+
+
+
+
+

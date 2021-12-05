@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <h2>监控列表</h2>
+        <div class="column">
+          <div>
+            <img src="./camera.png" alt="" />
+            <span>东-626</span>
+          </div>
+          <div>
+            <img src="./camera.png" alt="" />
+            <span>东-627</span>
+          </div>
+          <div>
+            <img src="./camera.png" alt="" />
+            <span>东-628</span>
+          </div>
+          <div>
+            <img src="./camera.png" alt="" />
+            <span>东-629</span>
+          </div>
+          <div>
+            <img src="./camera.png" alt="" />
+            <span>东-630</span>
+          </div>
+          <div>
+            <img src="./camera.png" alt="" />
+            <span>东-631</span>
+          </div>
+        </div>
+        <div class="nextPage">下一页</div>
+        <div class="area">
+          <h2>东部分区</h2>
+          <div class="area-column">
+            <div>625-650</div>
+            <div>651-675</div>
+            <div>676-700</div>
+          </div>
+        </div>
+        <h2 class="other-area">其他分区</h2>
+      </div>
+      <div class="right">
+        <div class="statistics">
+          <h2>流量统计</h2>
+          <p class="today">今日包裹总流量:<span>600</span></p>
+          <p class="month">本月包裹总流量:<span>1120469</span></p>
+          <p>本月处理异常包裹总量</p>
+          <h1>9486</h1>
+        </div>
+        <div class="special">
+          <h2>特别异常包裹处理</h2>
+          <h2 class="abnormal">西-231：<span>13</span>件</h2>
+          <h2 class="abnormal">北-476：<span>11</span>件</h2>
+        </div>
+        <h2 class="check">查看全部</h2>
+      </div>
+      <div class="center">
+        <div class="navigator">
+          <div>监控中心</div>
+          <div>风格切换</div>
+          <div>系统设置</div>
+          <div>联系我们</div>
+        </div>
+        <div class="logo">
+          <video
+            src="./package.mkv"
+            controls="controls"
+            playbackRate="2"
+          ></video>
+        </div>
+      </div>
+    </div>
+    <script>
+      const video = document.querySelector("video");
+      const today = document.querySelector(".today").querySelector("span");
+      const column = document.querySelector(".column");
+      const logo = document.querySelector(".logo");
+      const areaColumn = document.querySelector(".area-column");
+      const abnormal = document.querySelectorAll(".abnormal");
+      const month = document.querySelector(".month").querySelector("span");
+      let timer, timer1, timer2;
+      let count = 0;
+      let preTime = 0,
+        nextTime = 0;
+      console.log(today);
+
+      // 控制播放器的进度条以及示数不断更新
+      video.addEventListener("playing", function () {
+        video.playbackRate = 4;
+        nextTime = video.currentTime;
+        if (nextTime !== preTime) {
+          count = parseInt(nextTime);
+          today.innerHTML = count + 600;
+          month.innerHTML = count + 1120469;
+          abnormal[0].querySelector("span").innerHTML =
+            +abnormal[0].querySelector("span").innerHTML + parseInt(count / 4);
+          abnormal[1].querySelector("span").innerHTML =
+            +abnormal[1].querySelector("span").innerHTML + parseInt(count / 4);
+        }
+        timer = setInterval(function () {
+          count += parseInt(Math.random() * 10);
+          today.innerHTML = count + 600;
+          month.innerHTML = count + 1120469;
+        }, 1000);
+
+        timer1 = setInterval(function () {
+          abnormal[0].querySelector("span").innerHTML =
+            +abnormal[0].querySelector("span").innerHTML + 1;
+        }, 5000);
+
+        timer2 = setInterval(function () {
+          abnormal[1].querySelector("span").innerHTML =
+            +abnormal[1].querySelector("span").innerHTML + 1;
+        }, 7000);
+      });
+
+      video.addEventListener("pause", function () {
+        clearInterval(timer);
+        clearInterval(timer1);
+        clearInterval(timer2);
+        preTime = video.currentTime;
+      });
+
+      video.addEventListener("ended", function () {
+        clearInterval(timer);
+        clearInterval(timer1);
+        clearInterval(timer2);
+      });
+
+      // 点击分栏显示视频
+      column.addEventListener("click", function (e) {
+        if (e.path[0].nodeName === "SPAN") {
+          e.path[2].querySelectorAll("span").forEach(function (item) {
+            item.className = item.className.replace("add", "");
+          });
+          e.path[0].className += " add";
+          logo.style.background = "black";
+          video.style.display = "block";
+        }
+      });
+
+      areaColumn.addEventListener("click", function (e) {
+        e.path[1].querySelectorAll("div").forEach(function (item) {
+          item.className = item.className.replace("add", "");
+        });
+        e.path[0].className += " add";
+        console.log(column.querySelectorAll("div"));
+        column.querySelectorAll("div").forEach(function (item) {
+          item.style.display = "block";
+        });
+      });
+    </script>
+  </body>
+</html>
