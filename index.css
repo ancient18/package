@@ -182,6 +182,10 @@ video{
   background-color: white;
 }
 
+video::-webkit-media-controls-enclosure{ 
+  display: none;
+}
+
 
 
 
