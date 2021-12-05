@@ -72,7 +72,7 @@
         </div>
         <div class="logo">
           <video
-            src="./package.mkv"
+            src="./package.mp4"
             controls="controls"
             playbackRate="2"
           ></video>
@@ -95,19 +95,18 @@
 
       // 控制播放器的进度条以及示数不断更新
       video.addEventListener("playing", function () {
-        video.playbackRate = 4;
         nextTime = video.currentTime;
         if (nextTime !== preTime) {
           count = parseInt(nextTime);
           today.innerHTML = count + 600;
           month.innerHTML = count + 1120469;
           abnormal[0].querySelector("span").innerHTML =
-            +abnormal[0].querySelector("span").innerHTML + parseInt(count / 4);
+            +abnormal[0].querySelector("span").innerHTML + parseInt(count);
           abnormal[1].querySelector("span").innerHTML =
-            +abnormal[1].querySelector("span").innerHTML + parseInt(count / 4);
+            +abnormal[1].querySelector("span").innerHTML + parseInt(count);
         }
         timer = setInterval(function () {
-          count += parseInt(Math.random() * 10);
+          count += parseInt(Math.random() * 20);
           today.innerHTML = count + 600;
           month.innerHTML = count + 1120469;
         }, 1000);
