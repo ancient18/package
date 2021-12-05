@@ -91,20 +91,8 @@
       let count = 0;
       let preTime = 0,
         nextTime = 0;
-      console.log(today);
 
-      // 控制播放器的进度条以及示数不断更新
-      video.addEventListener("playing", function () {
-        nextTime = video.currentTime;
-        if (nextTime !== preTime) {
-          count = parseInt(nextTime);
-          today.innerHTML = count + 600;
-          month.innerHTML = count + 1120469;
-          abnormal[0].querySelector("span").innerHTML =
-            +abnormal[0].querySelector("span").innerHTML + parseInt(count);
-          abnormal[1].querySelector("span").innerHTML =
-            +abnormal[1].querySelector("span").innerHTML + parseInt(count);
-        }
+      window.onload = () => {
         timer = setInterval(function () {
           count += parseInt(Math.random() * 20);
           today.innerHTML = count + 600;
@@ -120,43 +108,72 @@
           abnormal[1].querySelector("span").innerHTML =
             +abnormal[1].querySelector("span").innerHTML + 1;
         }, 7000);
-      });
+      };
 
-      video.addEventListener("pause", function () {
-        clearInterval(timer);
-        clearInterval(timer1);
-        clearInterval(timer2);
-        preTime = video.currentTime;
-      });
+      // // 控制播放器的进度条以及示数不断更新
+      // video.addEventListener("playing", function () {
+      //   nextTime = video.currentTime;
+      //   if (nextTime !== preTime) {
+      //     count = parseInt(nextTime);
+      //     today.innerHTML = count + 600;
+      //     month.innerHTML = count + 1120469;
+      //     abnormal[0].querySelector("span").innerHTML =
+      //       +abnormal[0].querySelector("span").innerHTML + parseInt(count);
+      //     abnormal[1].querySelector("span").innerHTML =
+      //       +abnormal[1].querySelector("span").innerHTML + parseInt(count);
+      //   }
+      //   timer = setInterval(function () {
+      //     count += parseInt(Math.random() * 20);
+      //     today.innerHTML = count + 600;
+      //     month.innerHTML = count + 1120469;
+      //   }, 1000);
 
-      video.addEventListener("ended", function () {
-        clearInterval(timer);
-        clearInterval(timer1);
-        clearInterval(timer2);
-      });
+      //   timer1 = setInterval(function () {
+      //     abnormal[0].querySelector("span").innerHTML =
+      //       +abnormal[0].querySelector("span").innerHTML + 1;
+      //   }, 5000);
 
-      // 点击分栏显示视频
-      column.addEventListener("click", function (e) {
-        if (e.path[0].nodeName === "SPAN") {
-          e.path[2].querySelectorAll("span").forEach(function (item) {
-            item.className = item.className.replace("add", "");
-          });
-          e.path[0].className += " add";
-          logo.style.background = "black";
-          video.style.display = "block";
-        }
-      });
+      //   timer2 = setInterval(function () {
+      //     abnormal[1].querySelector("span").innerHTML =
+      //       +abnormal[1].querySelector("span").innerHTML + 1;
+      //   }, 7000);
+      // });
 
-      areaColumn.addEventListener("click", function (e) {
-        e.path[1].querySelectorAll("div").forEach(function (item) {
-          item.className = item.className.replace("add", "");
-        });
-        e.path[0].className += " add";
-        console.log(column.querySelectorAll("div"));
-        column.querySelectorAll("div").forEach(function (item) {
-          item.style.display = "block";
-        });
-      });
+      // video.addEventListener("pause", function () {
+      //   clearInterval(timer);
+      //   clearInterval(timer1);
+      //   clearInterval(timer2);
+      //   preTime = video.currentTime;
+      // });
+
+      // video.addEventListener("ended", function () {
+      //   clearInterval(timer);
+      //   clearInterval(timer1);
+      //   clearInterval(timer2);
+      // });
+
+      // // 点击分栏显示视频
+      // column.addEventListener("click", function (e) {
+      //   if (e.path[0].nodeName === "SPAN") {
+      //     e.path[2].querySelectorAll("span").forEach(function (item) {
+      //       item.className = item.className.replace("add", "");
+      //     });
+      //     e.path[0].className += " add";
+      //     logo.style.background = "black";
+      //     video.style.display = "block";
+      //   }
+      // });
+
+      // areaColumn.addEventListener("click", function (e) {
+      //   e.path[1].querySelectorAll("div").forEach(function (item) {
+      //     item.className = item.className.replace("add", "");
+      //   });
+      //   e.path[0].className += " add";
+      //   console.log(column.querySelectorAll("div"));
+      //   column.querySelectorAll("div").forEach(function (item) {
+      //     item.style.display = "block";
+      //   });
+      // });
     </script>
   </body>
 </html>
