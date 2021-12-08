@@ -51,15 +51,15 @@
       <div class="right">
         <div class="statistics">
           <h2>流量统计</h2>
-          <p class="today">今日包裹总流量:<span>600</span></p>
+          <p class="today">今日包裹总流量:<span>1247</span></p>
           <p class="month">本月包裹总流量:<span>1120469</span></p>
           <p>本月处理异常包裹总量</p>
           <h1>9486</h1>
         </div>
         <div class="special">
           <h2>特别异常包裹处理</h2>
-          <h2 class="abnormal">西-231：<span>13</span>件</h2>
-          <h2 class="abnormal">北-476：<span>11</span>件</h2>
+          <h2 class="abnormal">西-231：<span>133</span>件</h2>
+          <h2 class="abnormal">北-476：<span>102</span>件</h2>
         </div>
         <h2 class="check">查看全部</h2>
       </div>
@@ -72,14 +72,14 @@
         </div>
         <div class="logo">
           <video
-            src="./package.mp4"
+            src="./count_2.mp4"
             controls="controls"
             playbackRate="2"
           ></video>
         </div>
       </div>
     </div>
-    <script>
+    <script defer>
       const video = document.querySelector("video");
       const today = document.querySelector(".today").querySelector("span");
       const column = document.querySelector(".column");
@@ -95,7 +95,7 @@
       window.onload = () => {
         timer = setInterval(function () {
           count += parseInt(Math.random() * 20);
-          today.innerHTML = count + 600;
+          today.innerHTML = count + 1247;
           month.innerHTML = count + 1120469;
         }, 1000);
 
